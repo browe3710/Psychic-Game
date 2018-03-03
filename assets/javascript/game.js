@@ -1,4 +1,4 @@
-var psychicLetters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+var letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
   var youWin = 0;
   var youLose = 0;
   var guessesLeft = 13;
@@ -7,12 +7,12 @@ var psychicLetters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o
   document.onkeyup = function(event) {
     var yourGuess = event.key; 
     guessedLetters.push(yourGuess);    
-    var psychicAns = psychicLetters[Math.floor(Math.random() *    psychicLetters.length)];
+    var answer = letters[Math.floor(Math.random() *    letters.length)];
 
     
-    if (yourGuess === psychicAns) {
+    if (yourGuess === answer) {
       youWin++;
-      guessesLeft = 12;
+      guessesLeft = 10;
     }
     
     else {
@@ -22,7 +22,7 @@ var psychicLetters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o
     
     if (guessesLeft === 0){
       youLose++;
-      guessesLeft = 12;
+      guessesLeft = 10;
     }
 
     var html = "<p><strong>Guess what letter I'm thinking of</strong>:</p>" + "<p>Wins: " + youWin + "</p>" + "<p>Loses: "+ youLose + "<p>Guesses Remaining: " + guessesLeft + "<p>Guessed Letter: " +  guessedLetters.join(', '); //Show guessed letters here
